@@ -1,16 +1,12 @@
 package main
 
 import (
-	"example-webservice/models"
-	"fmt"
+	"example-webservice/controllers"
+	"net/http"
 )
 
 func main() {
-	u := models.User{
-		ID:        2,
-		FirstName: "Tricia",
-		LastName:  "McMillan",
-	}
-
-	fmt.Println(u)
+	controllers.RegisterControllers()
+	// Listen on port 3000, and use default handler
+	http.ListenAndServe(":3000", nil)
 }
